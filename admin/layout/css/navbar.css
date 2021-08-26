@@ -1,0 +1,39 @@
+.navbar-section .navbar .container .collapse .dropdown-box a {
+    color: #4786e8;
+    position: relative;
+    right: auto;
+    margin-right: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar-section .navbar .container .collapse .dropdown-box a:hover {
+    color: #FFF;
+    background: #4786e8;
+    border-radius: 5px;
+}
+
+.navbar-section .navbar .nav-item a:hover {
+    color: #4786e8;
+}
+
+body {
+    font-size: 18px;
+}
+.navbar-section .navbar{
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-section .navbar-brand{
+    font-size: 1em;
+}
+
+
+.navbar-section .navbar-brand:hover{
+    color: #4786e8;
+}
+
+.navbar-section a{
+    padding: 12px 12px;
+}

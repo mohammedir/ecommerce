@@ -1,7 +1,13 @@
 <?php
+session_start();//It's like share prefrence in android to save the user login or any other data
+
+$noNavbar='';//here this var to not allow showing navbar here
+
+if (isset($_SESSION['Username'])){ //Check If the admin login in or not if is login so continue to next page
+    //header('Location: dashboard.php');//Redirect To Dashboard Page
+}
+
 include('init.php');
-include($tpl . 'header.php');
-include($lang . 'english.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -10,8 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
     $stmt->execute(array($username, $hashedPass));
     $count = $stmt->rowCount();
-    if ($count > 0){
-        echo 'Welcome ' . $username;
+    if ($count > 0) { //Check if the admin is exists
+        $_SESSION['Username'] = $username; //Register session name
+        header('Location: dashboard.php');//Redirect To Dashboard Page
+        exit();
     }
 }
 ?>
