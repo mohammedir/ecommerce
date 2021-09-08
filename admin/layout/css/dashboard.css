@@ -1,0 +1,220 @@
+/*Start Home dashboard*/
+/*Start analysis card*/
+.dashboard .link {
+    text-decoration: none;
+}
+
+.dashboard .link:hover {
+
+}
+
+.dashboard h2 {
+    color: #6c757d;
+    font-size: 60px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.dashboard .analysis .card-body {
+    color: #FFF;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.dashboard .analysis .redCard {
+    background-color: #e74c3c;
+}
+
+.dashboard .analysis .greenCard {
+    background-color: #27ae60;
+}
+
+.dashboard .analysis .orangeCard {
+    background-color: #e67e22;
+}
+
+.dashboard .analysis .blueCard {
+    background-color: #2980b9;
+}
+
+/*Start Latest card*/
+.latest {
+    margin-top: 50px;
+}
+
+.latest strong {
+    color: #e67e22;
+}
+
+.latest li {
+    padding: 10px;
+    overflow: hidden;
+}
+.latest li a {
+    margin: 0 5px;
+    color: #FFF;
+}
+.latest li:nth-child(even) {
+    background-color: #ececec;
+}
+
+.latest strong {
+    color: #e67e22;
+}
+
+.latest .card-body {
+    background-color: #d9d7d7;
+    padding: 0;
+}
+
+.latest .card-header {
+    background-color: #2c3e50;
+    color: #FFF;
+}
+
+/*End Home dashboard*/
+
+/*Start Edit member*/
+.edit-member h1 {
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
+
+.edit-member .content ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.edit-member .content ul li .input {
+    margin: 10px;
+    height: 40px;
+    background: #dedede;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+}
+
+.edit-member .content ul li .button {
+    background: #4786e8;
+    color: #FFF;
+}
+
+/*End Edit member*/
+
+/*start Add new member*/
+.add-member h1 {
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
+
+.add-member .content ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.add-member .content ul li .input {
+    margin: 10px;
+    height: 40px;
+    background: #dedede;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+}
+.add-member .content ul li .row-div {
+    display: inline-flex;
+    height: 70px;
+}
+
+.add-member .content ul li .button {
+    background: #4786e8;
+    color: #FFF;
+}
+
+.add-member .content ul li .div-item {
+    color: #4786e8;
+    display: inline-flex;
+    right: -20px;
+    position: relative;
+}
+
+.add-member .content ul li .div-item p {
+    position: relative;
+    display: inline-grid;
+    padding-top: 15px;
+}
+
+/*End Add new member*/
+
+/*Start Manage members*/
+.main-table tr:first-child td {
+    background-color: #333;
+    color: #FFF;
+}
+
+.main-table .control-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #FFF;
+}
+
+/*Start Manage categories*/
+.container .sort-class a{
+    color: #002a49;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.sort-class .active-class{
+    text-decoration: none;
+    font-weight: bold;
+    color: #0d6efd;
+}
+.row-tr:hover{
+    background-color: #d7d7d7;
+}
+.status-category .gone-class{
+    /*display: none;*/
+    visibility: hidden;
+}
+.status-active{
+    background-color: #009afa;
+    color: #FFF;
+}
+
+.status-category span{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.visible-category{
+    background-color: #008047;
+    color: #FFF;
+}
+
+.comment-category{
+    background-color: #113d64;
+    color: #FFF;
+}
+
+.ads-category{
+    background-color: #ce3600;
+    color: #FFF;
+}
+
+
+/*End Manage categories*/
+/*End Edit member*/
