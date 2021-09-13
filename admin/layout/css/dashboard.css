@@ -50,10 +50,12 @@
     padding: 10px;
     overflow: hidden;
 }
+
 .latest li a {
     margin: 0 5px;
     color: #FFF;
 }
+
 .latest li:nth-child(even) {
     background-color: #ececec;
 }
@@ -134,6 +136,7 @@ h1 {
     padding: 10px;
     width: 500px;
 }
+
 .add-member .content ul li .row-div {
     display: inline-flex;
     height: 70px;
@@ -172,49 +175,115 @@ h1 {
 }
 
 /*Start Manage categories*/
-.container .sort-class a{
+.container .sort-class a {
     color: #002a49;
     text-decoration: none;
     font-weight: normal;
 }
 
-.sort-class .active-class{
+.sort-class .active-class {
     text-decoration: none;
     font-weight: bold;
     color: #0d6efd;
 }
-.row-tr:hover{
+
+.row-tr:hover {
     background-color: #d7d7d7;
 }
-.status-category .gone-class{
+
+.status-category .gone-class {
     /*display: none;*/
     visibility: hidden;
 }
-.status-active{
+
+.status-active {
     background-color: #009afa;
     color: #FFF;
 }
 
-.status-category span{
+.status-category span {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
 }
-.visible-category{
+
+.visible-category {
     background-color: #008047;
     color: #FFF;
 }
 
-.comment-category{
+.comment-category {
     background-color: #113d64;
     color: #FFF;
 }
 
-.ads-category{
+.ads-category {
     background-color: #ce3600;
     color: #FFF;
 }
 
-
 /*End Manage categories*/
+
+/*Start Items*/
+.table-header {
+    background-color: #333;
+    color: #FFF;
+}
+
+.status-div p {
+    padding: 0;
+}
+
+p {
+    padding: 0 0 0 12px;
+    margin: 0;
+    font-weight: bold;
+    color: #014c8f;
+}
+
+.add-item h1 {
+    margin: 50px 0 30px 0;
+    padding: 0;
+}
+
+.add-item .content ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.add-item .content ul li .input {
+    margin: 10px 0;
+    background: #dedede;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#edit-item .content ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+#edit-item ul label{
+    width: 100%;
+}
+
+#edit-item ul input{
+    margin: 10px 0;
+    background: #dedede;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#edit-item ul p{
+    padding: 0;
+}
+/*End  Items*/
+
+
+/*End Edit member*/
+/*End Edit member*/
 /*End Edit member*/

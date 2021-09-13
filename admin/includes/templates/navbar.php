@@ -14,7 +14,7 @@
                         <a class="nav-link active" aria-current="page" href="categories.php"><?php echo lang('categories') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><?php echo lang('items') ?></a>
+                        <a class="nav-link active" aria-current="page" href="items.php"><?php echo lang('items') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="members.php"><?php echo lang('members') ?></a>

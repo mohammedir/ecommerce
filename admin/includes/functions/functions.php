@@ -23,6 +23,14 @@ function redirect2Page($pageName, $pagePhp, $errorMessage, $seconds = 3)
     exit();
 }
 
+function printMessage($type, $message, $seconds = 5)
+{
+    echo "<div class='alert $type'>$message</div>";
+    //header("refresh:$seconds");
+    exit();
+}
+
+
 /*
  * Function to check Item into database
  */
@@ -57,13 +65,14 @@ function getRowsCountWhere($item, $table, $select, $value)
 
 /*
  * Get Latest Item*/
-function getData($select, $from, $order,$byDesAsc, $limit)
+function getData($select, $from, $order, $byDesAsc, $limit)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT $select FROM $from ORDER BY $order $byDesAsc LIMIT $limit");
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
 
 
 

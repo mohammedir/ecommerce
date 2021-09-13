@@ -59,7 +59,7 @@ if (isset($_SESSION['Username'])) { //Check If the admin login in or not if is l
                         foreach ($getLatestUser as $user) {
                             echo '<li>' . $user['Username'];
                             echo '<a class="btn btn-success float-end" href="members.php?page=Edit&userid=' . $user['UserID'] . '">Edit</a>';
-                            if ($user['RegStatus'] == 0){
+                            if ($user['RegStatus'] == 0) {
                                 echo '<a class="btn btn-info float-end" href="members.php?page=Activate&userid=' . $user['UserID'] . '">Activate</a>';
                             }
                             echo '</li>';

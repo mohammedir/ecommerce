@@ -13,6 +13,7 @@ $foaw = 'ttps://kit.fontawesome.com/deeee70e6c.js';
 //Inner pages path
 $inmempg = 'innerpage/membersPages/';
 $incatpg = 'innerpage/categoriesPages/';
+$initempg = 'innerpage/itemsPages/';
 
 
 include $func . 'functions.php';//All functions you need in the project
