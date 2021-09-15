@@ -6,6 +6,7 @@
             <thead>
             <tr class="table-header">
                 <th>ID</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>

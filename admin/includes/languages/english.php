@@ -11,10 +11,7 @@ function lang($phrase)
         'members' => 'Members',
         'statistics' => 'Statistics',
         'logs' => 'Logs',
-        '' => '',
-        '' => '',
-        '' => '',
-        '' => '',
+        'blog' => 'Blog',
     );
     return $lang[$phrase];
 }

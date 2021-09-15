@@ -2,6 +2,7 @@
     <div class="modal-dialog text-center">
         <div class="modal-content">
             <h4 class="modal-header">Edit Item</h4>
+            <p id="#message-item"></p>
             <div class="modal-body">
                 <form class="content" method="POST">
                     <ul>

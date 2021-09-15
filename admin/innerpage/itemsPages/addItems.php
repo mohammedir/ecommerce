@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 <div class="add-item text-center">
-                    <p class="message-alert alert alert-info" ></p>
+                    <p class="message-alert alert alert-info"></p>
                     <form class="content" method="POST">
                         <ul>
                             <li>
@@ -32,8 +32,28 @@
                                        autocomplete="off"
                                        required="required">
                             </li>
+                            <!--<li class="image-upload">
+
+                            </li>-->
                         </ul>
                     </form>
+
+                    <div class="image-upload container">
+                        <div class="row text-start">
+                            <div class="col-sm-6">
+                                <h6>Select image to upload:</h6>
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+                            </div>
+                            <div class="preview col-sm-6 text-end">
+                                <img alt="image" src="uploads/upload-image.png" id="img" width="100"
+                                     height="100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="image-upload">
+
+                    </div>-->
                 </div>
             </div>
             <div class="modal-footer">

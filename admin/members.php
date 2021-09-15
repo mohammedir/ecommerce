@@ -28,7 +28,7 @@ if (isset($_SESSION['Username'])) {
     }
     /* include $tpl .'footer.php';*/
 } else {
-    header('Location:index.php');
+    header('Location:login.php');
     exit();
 }
 ob_end_flush();//Release the Output

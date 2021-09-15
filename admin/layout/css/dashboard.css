@@ -281,6 +281,14 @@ p {
 #edit-item ul p{
     padding: 0;
 }
+
+.image-upload{
+    background-color: #28394d;
+    border-radius: 8px;
+    padding: 5px;
+    color: #FFF;
+}
+
 /*End  Items*/
 
 

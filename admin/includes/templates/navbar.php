@@ -37,7 +37,7 @@
                                    href="members.php?page=Edit&userid=<?php echo $_SESSION['ID'] ?>">Edit Profile</a>
                             </li>
                             <li><a class="dropdown-item" href="#">Sittings</a></li>
-                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            <li><a class="dropdown-item" href="../logout.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

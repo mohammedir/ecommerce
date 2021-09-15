@@ -1,5 +1,4 @@
 <div>
-
 </div>
 <script src="<?php echo $js ?>jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.1/datatables.min.css"/>

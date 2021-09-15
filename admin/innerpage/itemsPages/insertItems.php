@@ -10,13 +10,15 @@ try {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $country = $_POST['country'];
-
-    $stmt = $conn->prepare("INSERT INTO items(Name, Description,Price, Date,Country,Status,Rating,CatID,MemberID) VALUES(:name,:description,:price,now(),:country,0,0,1,27)");
+    $image = $_POST['image'];
+    $stmt = $conn->prepare("INSERT INTO items(Name, Description,Price, Date,Country,Image,Status,Rating,CatID,MemberID) VALUES(:name,:description,:price,now(),:country,:image,0,0,1,27)");
     $stmt->execute(array(
         'name' => $name,
         'description' => $description,
         'price' => $price,
-        'country' => $country));
+        'country' => $country,
+        'image' => $image));
+    //include "uploadImageItem.php";
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }

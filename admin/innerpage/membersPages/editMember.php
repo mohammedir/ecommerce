@@ -45,7 +45,7 @@ if ($count > 0) { ?>
     <?php
 } else {
     $error = 'Not Exist!';
-    redirect2Page('Home','index.php', $error, 4);
+    redirect2Page('Home','login.php', $error, 4);
 }
 ?>
 

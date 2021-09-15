@@ -26,7 +26,7 @@ if (isset($_SESSION['Username'])) {
         echo 'error not found this page';
     }
 } else {
-    header('Location:index.php');
+    header('Location:login.php');
     exit();
 }
 ob_end_flush();//Release the Output
