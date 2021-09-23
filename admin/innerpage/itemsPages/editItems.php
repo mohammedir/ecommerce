@@ -69,56 +69,6 @@
                                        required="required">
                             </label>
                         </li>
-                       <!-- <li>
-                            <label>
-                                <p class="text-start">Image</p>
-                                <input class="input"
-                                       type="text"
-                                       name="image"
-                                       id="itemImage"
-                                       placeholder="Number Of The Arrange The Categories"
-                                       autocomplete="off"
-                                       required="required">
-                            </label>
-                        </li>-->
-                        <!--<li>
-                            <div class="status-div row-div input row text-start">
-                                <p class="col">Status</p>
-                                <?php /*$status ='<div id="itemStatus"></div>'; if ($status == 0) { */?>
-                                    <div class="col">
-                                        <input id="vis-yes"
-                                               type="radio"
-                                               name="status"
-                                               value="0"
-                                               checked>
-                                        <label for="vis-yes">Yes</label>
-                                    </div>
-                                    <div class="col">
-                                        <input id="vis-no"
-                                               type="radio"
-                                               name="status"
-                                               value="1">
-                                        <label for="vis-no">No</label>
-                                    </div>
-                                <?php /*} else { */?>
-                                    <div class="col">
-                                        <input id="vis-yes"
-                                               type="radio"
-                                               name="status"
-                                               value="0">
-                                        <label for="vis-yes">Yes</label>
-                                    </div>
-                                    <div class="col">
-                                        <input id="vis-no"
-                                               type="radio"
-                                               name="status"
-                                               value="1"
-                                               checked>
-                                        <label for="vis-no">No</label>
-                                    </div>
-                                <?php /*} */?>
-                            </div>
-                        </li>-->
                         <li>
                             <label>
                                 <p class="text-start">Rating</p>

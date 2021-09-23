@@ -1,0 +1,137 @@
+body {
+    background-color: #FFF;
+}
+
+.item {
+    margin: 60px;
+}
+
+.item .col-one {
+    width: 30%;
+}
+
+.item .col-two {
+    width: 55%;
+    padding: 30px;
+}
+
+.item .col-three {
+    width: 15%;
+}
+
+.item .col-three a {
+    color: #1a1e21;
+    text-decoration: none;
+}
+
+.item .col-three .card-body {
+    margin: 8px;
+    padding: 0;
+}
+
+.item .col-one img {
+    width: 100%;
+    height: 400px;
+    object-fit: scale-down;
+}
+
+.item .col-three img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.item .col-two .item-details .rating-body{
+    display: flex;
+}
+
+.item .col-two .item-details .rating-body:hover + div {
+    display: block;
+}
+
+.item .col-two .rating-detail-card {
+    display: none;
+}
+.item .col-two .rating-detail-card:hover {
+    display: flow-root;
+}
+.item .col-two .container {
+    padding: 0 50px 0 0;
+}
+
+.badge {
+    font-size: 25px;
+    font-weight: 200
+}
+
+.badge i {
+    font-size: 20px;
+    font-weight: 200
+}
+
+.about-rating {
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px
+}
+
+.total-ratings {
+    font-size: 12px
+}
+
+.bg-custom {
+    background-color: #b7dd29 !important
+}
+
+.text-custom {
+    color: #b7dd29 !important
+}
+
+.progress {
+    margin-top: 2px;
+    border-radius: 0;
+    padding-left: 0;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0;
+}
+
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
