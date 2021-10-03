@@ -5,7 +5,8 @@
       "Name": "Samsung",
       "Description": "Samsung mobile",
       "Price": "250",
-      "Date": "2021-09-08"
+      "Date": "2021-09-08",
+      "quantity": "250"
     }
   ]
 }

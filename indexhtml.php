@@ -1,30 +1,28 @@
 <?php
-    if(isset($_POST['add'])){
-        //print_r($_POST['item_id']);
-        if (isset($_SESSION['cart'])){
-            $item_array_id = array_column($_SESSION['cart'],'item_id');
-            if (in_array($_POST['item_id'],$item_array_id)){
-                echo "<script> alert('Product is already in the cart...!')</script>";
-            }else{
-                $count = count($_SESSION['cart']);
-                $item_array = array('item_id' => $_POST['item_id']);
-                $_SESSION['cart'][$count] = $item_array;
-                echo "<script>window.location ='index.php'</script>";
+/* if(isset($_POST['add']) && !isset($_SESSION['Username'])){
+     //print_r($_POST['item_id']);
+     if (isset($_SESSION['cart'])){
+         $item_array_id = array_column($_SESSION['cart'],'item_id');
+         if (in_array($_POST['item_id'],$item_array_id)){
+             echo "<script> alert('Product is already in the cart...!')</script>";
+         }else{
+             $count = count($_SESSION['cart']);
+             $item_array = array('item_id' => $_POST['item_id']);
+             $_SESSION['cart'][$count] = $item_array;
+             echo "<script>window.location ='index.php'</script>";
 
-            }
-        }else{
-            $item_array = array(
-                    'item_id'=>$_POST['item_id']
-            );
-            //Create new session variable
-            $_SESSION['cart'][0]= $item_array;
-            echo "<script>window.location ='index.php'</script>";
+         }
+     }else{
+         $item_array = array(
+                 'item_id'=>$_POST['item_id']
+         );
+         //Create new session variable
+         $_SESSION['cart'][0]= $item_array;
 
-        }
-    }elseif (isset($_POST['add']) && isset($_SESSION['Username'])){
+     }
 
-    }
-    ?>
+ }*/
+?>
 <!--Start Slider-->
 <div class="top-content">
     <div class="container">
@@ -39,11 +37,13 @@
                         $categoriesId = $row['ID'] ?>
 
 
-                        <form action="categoriesItems.php?action=categories&id=<?php echo $categoriesId?>" method="post" class="cart-items">
-                            <button style="border: none; background: none" type="submit"  name="categoriesItems"><?php echo $name?></button>
+                        <form action="categoriesItems.php?action=categories&id=<?php echo $categoriesId ?>"
+                              method="post" class="cart-items">
+                            <button style="border: none; background: none" type="submit"
+                                    name="categoriesItems"><?php echo $name ?></button>
                         </form>
-                    <?php
-/*                        echo "<a style='text-decoration: none' href='categoriesItems.php'><li><label class='checkbox'><input type='checkbox'></label> $name</li></a>";*/
+                        <?php
+                        /*                        echo "<a style='text-decoration: none' href='categoriesItems.php'><li><label class='checkbox'><input type='checkbox'></label> $name</li></a>";*/
                     } ?>
                 </ul>
             </div>
@@ -59,30 +59,30 @@
                                 </div>-->
                                 <?php
 
-                                foreach (getAds() as $row){
+                                foreach (getAds() as $row) {
                                     $active = $row['adsActive'];
                                     $adsitemid = $row['adsItemId'];
                                     echo "<div class='carousel-item $active'>";
-                                        $adsimage = $row['adsImage'];
-                                        echo "<a href='item.php?itemid=$adsitemid'><img src='uploads/$adsimage' class='d-block w-100' alt='slide-img'></a> ";
+                                    $adsimage = $row['adsImage'];
+                                    echo "<a href='item.php?itemid=$adsitemid'><img src='uploads/$adsimage' class='d-block w-100' alt='slide-img'></a> ";
                                     echo "</div>";
 
                                 }
                                 ?>
 
-                            <div class="carousel-indicators">
-                                <?php
-                                foreach (getAds() as $row){
-                                    $adsID = $row['adsID'] - 1 ;
-                                    $adsName = $row['adsName'];
-                                    echo "<button type='button' data-bs-target='#carouselExampleIndicators'
+                                <div class="carousel-indicators">
+                                    <?php
+                                    foreach (getAds() as $row) {
+                                        $adsID = $row['adsID'] - 1;
+                                        $adsName = $row['adsName'];
+                                        echo "<button type='button' data-bs-target='#carouselExampleIndicators'
                                             data-bs-slide-to='$adsID' class='active' 
                                             aria-current='true' aria-label='$adsName'  >";
-                                }
+                                    }
 
-                                ?>
+                                    ?>
+                                </div>
                             </div>
-                        </div>
                     </li>
                     <li class="row-two-col-tow">
                         <div class="container">
@@ -133,7 +133,7 @@
 <!--Start Latest post-->
 <div class="latest-post" id="output">
     <div class="container">
-        <div class="row" >
+        <div class="row">
             <?php
             //print_r(getProducts()) ;
             foreach (getProducts() as $row) {
@@ -143,15 +143,20 @@
                 $price = $row['Price'];
                 $rating = $row['Rating'];
                 $itemid = $row['itemID'];
-/*                echo $itemid;*/
+                $cartmemberID = $row['MemberID'];
+                /*                echo $itemid;*/
                 echo "<div class='text-center col-sm-4 col-md-3 col-lg-2'> <a href='item.php?itemid=$itemid' target='_blank' class='card' >";
-                echo "<form action='index.php' method='post'>";
+                echo "<form  method='post'>";
                 /*echo '<div class="col-sm-4 col-md-3 col-lg-2">
                 <a href="item.php?item="  target="_blank" class="card">';*/
                 echo "<img class='card-img-top' src='uploads/$img' alt=''> <div class='card-body'>";
                 echo "<p>$name</p> <p>$desc</p> <h5><small><s class='text-secondary'>$10</s></small> $$price</h5> 
-                          <button class='btn btn-warning my-3' type='submit' name='add'>Add to cart<i style='color: white' class='fas fa-shopping-cart'></i></button>
-                          <input type='hidden' name='item_id' value='$itemid'>
+                          <button class='btn btn-warning my-3 add_cart' type='submit' name='add' pid='$itemid' id='addcart'>Add to cart<i style='color: white' class='fas fa-shopping-cart'></i></button>
+                          <input type='hidden' name='item_id' value='$itemid' pid='$itemid'>
+                          <input type='hidden' name='item_image' value='$img' id='img'>
+                          <input type='hidden' name='item_name' value='$name' id='namecart'>
+                          <input type='hidden' name='item_price' value='$price' id='pricecart'>
+                          <input type='hidden' name='cartmemberID' value='$cartmemberID' id='cartmemberID'>
                         </div> </a></form></div>";
             } ?>
         </div>
@@ -295,32 +300,31 @@
 </div>
 <!--End Copy right-->
 
+
 <script type="text/javascript">
-    $(document).ready(function ()){
-        $("#searchbar").onkeyup(function ())
-        {
-            var query = $(this).val();
-            if (query != '') {
-                $.ajax({
-                    url: "search.php",
-                    method: "POST",
-                    data: {query: query},
-                    success: function (data) {
-                        $('#countryList').html(data);
-                    }
-                });
 
-            } else {
-                $('#countryList').html('');
+ /*   $(document).on("click", ".add_cart", function (event) {
+        event.preventDefault();
+        var pid = $(this).attr("pid");
+        var name = $("#namecart").val();
+        var price = $("#pricecart").val();
+        var action = "add";
 
+        $.ajax({
+            url: "cart_action.php",
+            method: "POST",
+            data: {'proId': pid, 'name': name, 'price': price, 'action': action},
+            success: function (data) {
+                if (data == "add"){
+                    alert('Add To Cart Succssfully')
+                }else {
+                    alert('Not Add')
+
+                }
             }
-
-        });
-            $(document).on('click','.list-group-item',function ()){
-                $('#searchbar').val($.trim($(this).text()));
-                $('#countryList').fadeOut();
         });
 
-        });
-    }
+    });
+*/
 </script>
+

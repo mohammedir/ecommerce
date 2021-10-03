@@ -38,7 +38,15 @@ if ($_SESSION['lang'] == "en") {
 
             </div>
             <!--Right elements -->
-            <form style="margin: 0 10px" class="search-key-box d-flex input-group w-auto">
+            <form style="margin: 0 10px" method="POST" class="navbar-form navbar-left" action="search.php">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="navbar-search-input" name="keyword" placeholder="Search for Product" required>
+                    <span class="input-group-btn" id="searchBtn" style="display:none;">
+                  <button type="submit" class="btn btn-default btn-flat"><i class="fa fa-search"></i> </button>
+              </span>
+                </div>
+            </form>
+            <!--<form style="margin: 0 10px" class="search-key-box d-flex input-group w-auto" action="search.php">
                 <div class="input-group">
                     <input
                             id="searchbar"
@@ -50,15 +58,22 @@ if ($_SESSION['lang'] == "en") {
                        <button type="submit" class="input-group-text border-0" id="search-addon"><i class="fas fa-search"></i></button>
                        <div class="countryList" style="position: absolute;width: 235px;z-index: 1001;"></div>
                 </div>
-            </form>
-            <a style="text-decoration: none" class="text-reset me-3" href="cart.php">
+            </form>-->
+            <a style="text-decoration: none" class="text-reset me-3 cart" href="cart.php">
                 <i class="fas text-light fa-shopping-cart"></i>
                 <?php
                    if (isset($_SESSION['cart'])){
                        $count = count($_SESSION["cart"]);
                        echo "<span style=\"color:#fafafa; padding:0 0.9rem 0.1rem 0.9rem; border-radius: 3rem\" class=\"cart_count text-warning bg-light\">$count</span>";
+                   }elseif (isset($_SESSION['Username'])){
+                       $username = $_SESSION['Username'];
+                       $stmt = $conn->prepare("SELECT * FROM cart WHERE userName = '$username'");
+                       $stmt->execute();
+                       $cou = $stmt->fetchAll();
+                       $countwhith = count($cou);
+                       echo "<span style=\"color:#fafafa; padding:0 0.9rem 0.1rem 0.9rem; border-radius: 3rem\" class=\"cart_count text-warning bg-light\" id='ba'>$countwhith</span>";
                    }else{
-                       echo '<span style="color:#fafafa; padding:0 0.9rem 0.1rem 0.9rem; border-radius: 3rem" class="cart_count text-warning bg-light">0</span>';
+                       echo "<span style=\"color:#fafafa; padding:0 0.9rem 0.1rem 0.9rem; border-radius: 3rem\" class=\"cart_count text-warning bg-light\">0</span>";
 
                    }
                 ?>

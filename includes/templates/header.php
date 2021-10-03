@@ -21,6 +21,8 @@ if (isset($_SESSION['lang'])) {
     <link rel="stylesheet" href="<?php echo $css; ?>login.css"/>
     <link rel="stylesheet" href="<?php echo $css; ?>index.css"/>
     <link rel="stylesheet" href="<?php echo $css; ?>item.css"/>
+    <link rel="stylesheet" href="<?php echo $js;?>backend.js">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <!--Open the body here and close it in the footer php file-->
 <body style="direction: <?php echo $dir;?>">

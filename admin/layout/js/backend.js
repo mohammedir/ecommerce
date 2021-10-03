@@ -30,6 +30,8 @@ $(function () {
         uploadImage();
     });
 
+
+
     //Add Item using Ajax
     function addItem() {
         $('.message-alert').html("Please Fill in the Blanks!");
@@ -38,7 +40,8 @@ $(function () {
         var description = $('#description-item').val();
         var price = $('#price-item').val();
         var country = $('#country-item').val();
-        if (name == "" || description == "" || price == "" || country == "") {
+        var quantity =$('#quantity-item').val();
+        if (name == "" || description == "" || price == "" || country == "" || quantity == "") {
             $('.message-alert').html("Please Fill in the Blanks!");
         } else {
             $.ajax({
@@ -49,7 +52,8 @@ $(function () {
                     'description': description,
                     'price': price,
                     'country': country,
-                    'image': imageName
+                    'image': imageName,
+                    'quantity':quantity
                 },
                 success: function () {
                     $('.message-alert').html('Added successfully');

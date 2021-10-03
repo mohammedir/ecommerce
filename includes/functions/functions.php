@@ -16,6 +16,19 @@ function getAds(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+function getcarts(){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM cart");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getpaypal(){
+    global $conn;
+    $stmt = $conn->prepare("SELECT a.itemID,a.Name,a.Price,a.Image,b.cartID,b.QuantityIncart FROM items a,cart b WHERE a.itemID=b.pId AND b.userName='$_SESSION[Username]'");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
 
 function getProducts()
 {

@@ -32,6 +32,12 @@
                                        autocomplete="off"
                                        required="required">
                             </li>
+                            <li>
+                                <input id="quantity-item" class="input" type="number" name="quantity"
+                                       placeholder="Quantity"
+                                       autocomplete="off"
+                                       required="required">
+                            </li>
                             <!--<li class="image-upload">
 
                             </li>-->

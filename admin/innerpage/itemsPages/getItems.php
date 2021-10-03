@@ -9,6 +9,7 @@ try {
     $stmt = $conn->prepare("SELECT * FROM items");
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($result);
     $data = [];
     foreach ($result as $row) {
         if ($row['Status'] == 1) {
@@ -37,7 +38,7 @@ try {
             'Rating' => $row['Rating'],
             'CatID' => $row['CatID'],
             'MemberID' => $row['MemberID'],
-            'Control' => $control
+            'Control' => $control,
         ];
     }
     echo json_encode($data);
