@@ -12,6 +12,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     addToCart($conn);
     CheckQuantity($conn);
+    RemoveCart($conn);
 
     //include "uploadImageItem.php";
 } catch (PDOException $e) {
@@ -118,4 +119,13 @@ function CheckQuantity($conn){
 
 }
 
+function RemoveCart($conn){
+    if (isset($_POST['removeCart'])){
+        $cartID = $_POST['cartID'];
+        $stmt = $conn->prepare("DELETE FROM cart WHERE cartID  = '$cartID' ");
+        $stmt->execute();
+        echo "remove";
+
+    }
+}
 ?>

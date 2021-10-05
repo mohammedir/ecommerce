@@ -52,8 +52,20 @@ $(function () {
         var qty =input.value;
         qty++;
         input.value=qty
+
+        var inputprice = document.getElementById('priceid'+id);
+        var price = parseInt(inputprice.innerHTML);
+
+        var inputtotal = document.getElementById('total');
+        var total = parseInt(inputtotal.innerHTML);
+        for (let i = 0 ; i<qty ; i++ ){
+            total = total + price
+        }
         console.log(id)
         console.log(qty)
+        console.log(inputtotal)
+        console.log(total)
+        console.log(price)
         $(".overlay").show();
         $.ajax({
             url: "cart_action.php",
@@ -97,6 +109,28 @@ $(function () {
         });
 
     });
+
+    $(document).on("click", ".remove", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('cid');
+        alert(id);
+
+        $.ajax({
+            url: "cart_action.php",
+            method: "POST",
+            data: {removeCart: 1,cartID:id},
+            success: function (data) {
+                if (data == "remove") {
+                    alert("done+");
+
+                }
+
+            }
+
+        });
+
+    });
+
 
 
     /*$(document).ready(function () {

@@ -96,9 +96,9 @@ if (isset($_POST['remove'])){
                                 <div class="col-md-6">
                                     <h5 class="pt-2"><?php echo "$name";?></h5>
                                     <small class="text-secondary">Seller:dallytultion</small>
-                                    <h5 class="pt-2"><?php echo $price?></h5>
-                                    <button type="submit" class="btn btn-warning">Save for Later</button>
-                                    <button type="submit" class="btn btn-danger mx-2" name="remove">Remove</button>
+                                    <h5 class="pt-2" id="<?php echo "priceid".$cartID?>"><?php echo $price?></h5>
+<!--                                    <button type="submit" class="btn btn-warning">Save for Later</button>
+-->                                    <button type="submit" class="btn btn-danger mx-2 remove" name="remove" cid='<?php echo $cartID?>'>Remove</button>
                                 </div>
                                 <div class="col-md-3 py-5">
                                     <div>
@@ -109,9 +109,6 @@ if (isset($_POST['remove'])){
                                 </div>
                             </div>
                         </div>
-
-
-
 
                     <?php
                     }
@@ -163,7 +160,10 @@ if (isset($_POST['remove'])){
         <h6>Amount Payable</h6>
         </div>
         <div class="col-md-6">
-        <h6>$<?php echo $total ?></h6>
+       <?php echo "<h6 id='total'>$total </h6>"?>
+
+<!--        <h6 id="total".$cartID>$<?php /*echo $total */?></h6>
+-->
         <?php
         if (!isset($_SESSION['Username'])) {
         echo "<a class='btn btn-success'>Buy</a>";
