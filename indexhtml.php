@@ -145,7 +145,7 @@
                 $itemid = $row['itemID'];
                 $cartmemberID = $row['MemberID'];
                 /*                echo $itemid;*/
-                echo "<div class='text-center col-sm-4 col-md-3 col-lg-2'> <a href='item.php?itemid=$itemid' target='_blank' class='card' >";
+                echo "<div class='text-center col-sm-4 col-md-3 col-lg-2'> <a href='item.php?itemid=$itemid' class='card' >";
                 echo "<form  method='post'>";
                 /*echo '<div class="col-sm-4 col-md-3 col-lg-2">
                 <a href="item.php?item="  target="_blank" class="card">';*/

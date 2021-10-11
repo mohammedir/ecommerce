@@ -33,19 +33,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = '';
             $sol = '';
             $groupID = $row['GroupID'];
-            $_SESSION['Username'] = $username; //Register session name
-            $_SESSION['ID'] = $row['UserID']; //Register session ID
-            $_SESSION['GroupID'] = $groupID; //Register session GroupID
+            $verifiedEmail =$row['user_email_status'];
+
             //Select main windows to show for all custom user
-            if ($groupID == 0) {//user
-                header('Location: index.php');//Redirect To Dashboard Page
-            } elseif ($groupID == 1) {//admin
-                header('Location: admin/dashboard.php');//Redirect To Dashboard Page
-            } elseif ($groupID == 2) {//seller
-                header('Location: seller/dashboard.php');//Redirect To Dashboard Page
+            if ($verifiedEmail == "verified") {
+                $_SESSION['Username'] = $username; //Register session name
+                $_SESSION['ID'] = $row['UserID']; //Register session ID
+                $_SESSION['GroupID'] = $groupID; //Register session GroupID
+                if ($groupID == 0) {//user
+                    header('Location: index.php');//Redirect To Dashboard Page
+                } elseif ($groupID == 1) {//admin
+                    header('Location: admin/dashboard.php');//Redirect To Dashboard Page
+                } elseif ($groupID == 2) {//seller
+                    header('Location: seller/dashboard.php');//Redirect To Dashboard Page
+                }
+            }else{
+                header('location:email_verify.php?code='.$user_activation_code);
+                exit();
             }
-            exit();
-        } else {
+        }else {
             $error = "You have not account";
             $sol = 'Register Now';
         }
@@ -57,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="login-box">
         <div class="login-boy">
             <h2>Login</h2>
-            <p class="text-danger"><?php echo $error; ?> <a href='registerUser.php'><strong> <?php echo $sol; ?></strong></a></p>
+            <p class="text-danger"><?php echo $error; ?></p>
             <form class="form row" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                 <ul>
                     <li>
@@ -67,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <li>
                         <input class="form-control" type="password" name="password" placeholder="Password"
                                autocomplete="off">
+                        <a href="forgot-password.php">Forgot password?</a>
                     </li>
                     <li>
                         <input class="btn" type="submit" name="submit" value="Login">

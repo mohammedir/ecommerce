@@ -19,7 +19,7 @@ function lang($phrase)
         'categories' => 'الأقسام',
         'items' => 'المنتجات',
         'members' => 'الأعضاء',
-        'statistics' => 'الإحصائيات',
+        'order' => 'الطلبات',
         'logs' => 'السجلات',
         'blog' => 'المدونة',
         'language' => 'اللغة',

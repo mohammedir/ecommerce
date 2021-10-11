@@ -20,7 +20,7 @@
                         <a class="nav-link active" aria-current="page" href="members.php"><?php echo lang('members') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"><?php echo lang('statistics') ?></a>
+                        <a class="nav-link active" aria-current="page" href="orders.php"><?php echo lang('order') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#"><?php echo lang('logs') ?></a>

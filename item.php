@@ -5,22 +5,29 @@ include "initmain.php";
 <div class="item">
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-one col-sm-12 col-md-12 col-lg-4">
                 <?php
                  foreach (getProducts() as $row){
                      $itemID = $row['itemID'];
                      $itemImage = $row['Image'];
-                     if ($_GET['itemid'] == $itemID) {
-                         echo "<img src='uploads/$itemImage' alt=''>";
-                     }
+                     $name = $row['Name'];
 
-                 }
-                ?>
+
+                if ($_GET['itemid'] == $itemID) {
+                         echo "<img src='uploads/$itemImage' alt=''>";
+                     ?>
             </div>
+
             <div class="col-two col-sm-12 col-md-12 col-lg-4">
                 <div class="item-details text-start">
                     <div>
-                        <h5>Solid State Drives Desktop Computer Laptop Hard Drive Disk</h5>
+                        <?php
+                       echo "<h5>$name</h5>";
+                        }
+
+                 }
+                ?>
                     </div>
                     <div class="rating-body">
                         <div class="rate">
@@ -110,18 +117,31 @@ include "initmain.php";
                     <div>
                     <?php
                     foreach (getProducts() as $row) {
+                        $img = $row['Image'];
+                        $name = $row['Name'];
+                        $desc = $row['Description'];
+                        $price = $row['Price'];
+                        $rating = $row['Rating'];
                         $itemid = $row['itemID'];
-                        $itemPrice =$row['Price'];
+                        $cartmemberID = $row['MemberID'];
+                        $Quantity = $row['Quantity'];
                         if ($_GET['itemid'] == $itemid) {
-                            echo "<h3>$itemPrice</h3>";
+                            echo "<form  method='post'>";
+                            /*echo '<div class="col-sm-4 col-md-3 col-lg-2">
+                            <a href="item.php?item="  target="_blank" class="card">';*/
+                            echo "<p>Quantity:$Quantity</p> <p>$desc</p> <h5><small><s class='text-secondary'>$10</s></small> $$price</h5> 
+                          <button class='btn btn-warning my-3 add_cart' type='submit' name='add' pid='$itemid' id='addcart'>Add to cart<i style='color: white' class='fas fa-shopping-cart'></i></button>
+                          <input type='hidden' name='item_id' value='$itemid' pid='$itemid'>
+                          <input type='hidden' name='item_image' value='$img' id='img'>
+                          <input type='hidden' name='item_name' value='$name' id='namecart'>
+                          <input type='hidden' name='item_price' value='$price' id='pricecart'>
+                          <input type='hidden' name='cartmemberID' value='$cartmemberID' id='cartmemberID'>
+                        </div> </a></form></div>";
                         }
                     }
                     ?>
                     </div>
-                    <div>
-                        <p>Quantity:</p>
-                        
-                    </div>
+
                 </div>
             </div>
             <div class="col-three col-sm-12 col-md-12 col-lg-4">

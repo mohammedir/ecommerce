@@ -19,7 +19,7 @@ function lang($phrase)
         'categories' => 'Categories',
         'items' => 'Items',
         'members' => 'Members',
-        'statistics' => 'Statistics',
+        'order' => 'order',
         'logs' => 'Logs',
         'blog' => 'Blog',
         'language' => 'Language',

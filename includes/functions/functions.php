@@ -81,7 +81,7 @@ function wrap_tag($argument){
     return '<b>' .$argument. '</b>';
 }
 
-
+/*
 function make_avatar($character)
 {
     $path = "avatar/". time() . ".png";
@@ -97,7 +97,7 @@ function make_avatar($character)
     imagepng($image, $path);
     imagedestroy($image);
     return $path;
-}
+}*/
 
 function Get_user_avatar($user_id)
 {

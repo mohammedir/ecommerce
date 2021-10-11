@@ -9,7 +9,7 @@ function lang($phrase)
         'categories' => 'Categories',
         'items' => 'Items',
         'members' => 'Members',
-        'statistics' => 'Statistics',
+        'order' => 'orders',
         'logs' => 'Logs',
         'blog' => 'Blog',
     );

@@ -11,7 +11,17 @@ if(isset($_SESSION["user_id"]))
     header("location:home.php");
 }
 
-/*include('function.php');*/
+include('includes/functions/functions.php');
+// Include required phpmailer files
+require 'includes/PHPMailer.php';
+require 'includes/Exception.php';
+require 'includes/SMTP.php';
+
+// Define name spaces
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 
 include "connect.php";
 $message = '';
@@ -54,7 +64,7 @@ if(isset($_POST["register"]))
     else
     {
         $user_password = trim($_POST["user_password"]);
-        $user_password = password_hash($user_password, PASSWORD_DEFAULT);
+        $user_password = sha1($user_password);
     }
 
     if($error_user_name == '' && $error_user_email == '' && $error_user_password == '')
@@ -73,11 +83,11 @@ if(isset($_POST["register"]))
         );
 
         $query = "
-  INSERT INTO register_user 
-  (user_name, user_email, user_password, user_activation_code, user_email_status, user_otp)
+  INSERT INTO users /*users*/
+  (Username, Email, Password, user_activation_code, user_email_status, user_otp)
   SELECT * FROM (SELECT :user_name, :user_email, :user_password, :user_activation_code, :user_email_status, :user_otp) AS tmp
   WHERE NOT EXISTS (
-      SELECT user_email FROM register_user WHERE user_email = :user_email
+      SELECT Email FROM users WHERE Email = :user_email
   ) LIMIT 1
   ";
 
@@ -89,58 +99,53 @@ if(isset($_POST["register"]))
         {
             $message = '<label class="text-danger">Email Already Register</label>';
         }
-        else
-        {
-            $user_avatar = make_avatar(strtoupper($user_name[0]));
+        else {
 
-            $query = "
-   UPDATE register_user 
-   SET user_avatar = '".$user_avatar."' 
-   WHERE register_user_id = '".$conn->lastInsertId()."'
-   ";
-
-            $statement = $conn->prepare($query);
-
-            $statement->execute();
-
-
-            require 'class/class.phpmailer.php';
-            $mail = new PHPMailer;
-            $mail->IsSMTP();
-            $mail->Host = 'smtpout.secureserver.net';
-            $mail->Port = '80';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'xxxxxxxxxxxxxx';
-            $mail->Password = 'xxxxxxxxxxxxxx';
-            $mail->SMTPSecure = '';
-            $mail->From = 'tutorial@webslesson.info';
-            $mail->FromName = 'Webslesson';
-            $mail->AddAddress($user_email);
-            $mail->WordWrap = 50;
-            $mail->IsHTML(true);
-            $mail->Subject = 'Verification code for Verify Your Email Address';
-
-            $message_body = '
-   <p>For verify your email address, enter this verification code when prompted: <b>'.$user_otp.'</b>.</p>
-   <p>Sincerely,</p>
-   <p>Webslesson.info</p>
-   ';
-            $mail->Body = $message_body;
-
-            if($mail->Send())
-            {
-                echo '<script>alert("Please Check Your Email for Verification Code")</script>';
-
+            // Create instance of phpmailer
+            $mail = new PHPMailer();
+            // Set mailer to use smtp
+            $mail->isSMTP();
+            // define smtp host
+            $mail->Host = "smtp.gmail.com";
+            // enable smtp authentication
+            $mail->SMTPAuth = "true";
+            // set type of encryption(ssl/tls)
+            $mail->SMTPSecure = "tls";
+            // set port to connect smtp
+            $mail->Port = "587";
+            // set gmail username
+            $mail->Username = "mohammed.f.irheem@gmail.com";
+            // set gmail password
+            $mail->Password = "Mohammed-0597750487";
+            // set email subject
+            $mail->Subject = "Test Email Using PHPMailer";
+            // set sender email
+            $mail->setFrom("mohammed.f.irheem@gmail.com");
+            // Enable HTML
+            $mail->isHTML(true);
+            // Email body
+            $mail->Body = "<h1>This is h1 html heading </h1></br><p>This is html paragraph..$user_otp</p>";
+            // Add recipient
+            $mail->addAddress($user_email);
+            // Finally send email
+            if ($mail->send()) {
+                echo "Email Sent ..!";
                 header('location:email_verify.php?code='.$user_activation_code);
-            }
-            else
-            {
-                $message = $mail->ErrorInfo;
-            }
-        }
 
+            } else {
+                echo "Error..!";
+            }
+            // Closing smtp connection
+            $mail->smtpClose();
+
+        }
     }
 }
+
+
+
+
+
 
 ?>
 <!DOCTYPE html>
